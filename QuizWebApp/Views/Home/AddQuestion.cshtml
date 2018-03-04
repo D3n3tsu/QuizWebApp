@@ -1,0 +1,57 @@
+﻿@model CreateQuestionViewModel
+@{
+    ViewData["Title"] = "Add Question";
+}
+
+<div>
+    <h2>Add Question</h2>
+    <form asp-action="AddQuestion" asp-antiforgery="true">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input hidden asp-for="QuizId" />
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input class="form-control" asp-for="Title" placeholder="Write title for new question" />
+        </div>
+        <div class="form-group">
+            <label>Answer</label>
+            <textarea class="form-control" asp-for="Answer1" placeholder="Answer goes here"></textarea>
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox" type="checkbox" asp-for="CorrectAnswer1" />
+                    Is correct
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Answer</label>
+            <textarea class="form-control" asp-for="Answer2" placeholder="Answer goes here"></textarea>
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox" type="checkbox" asp-for="CorrectAnswer2" />
+                    Is correct
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Answer</label>
+            <textarea class="form-control" asp-for="Answer3" placeholder="Answer goes here"></textarea>
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox" type="checkbox" asp-for="CorrectAnswer3" />
+                    Is correct
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Answer</label>
+            <textarea class="form-control" asp-for="Answer4" placeholder="Answer goes here"></textarea>
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox" type="checkbox" asp-for="CorrectAnswer4" />
+                    Is correct
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary">Add question</button>
+    </form>
+</div>

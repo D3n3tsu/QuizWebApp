@@ -1,0 +1,36 @@
+﻿@model QuestionViewModel
+@{
+    ViewData["Title"] = "Question";
+}
+
+    <div class="panel">
+        <form asp-antiforgery="true">
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <input hidden asp-for="QuizId" value="@Model.QuizId" />
+            <input hidden asp-for="CorrectAnswers" value="@Model.CorrectAnswers" />
+            <input hidden asp-for="CurrentQuestion" value="@Model.CurrentQuestion" />
+            <div class="panel-heading">
+                @Model.Title
+            </div>
+            <div class="panel-body">
+                @foreach (var answer in Model.Answers)
+                {
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="SubmitedAnswers" value="@answer">
+                            @answer
+                        </label>
+                    </div>
+                }
+            </div>
+            @if (Model.IsLastQuestion)
+            {
+                <button class="btn btn-primary">Know the score</button>
+            }
+            else
+            {
+                <button class="btn btn-success">Next question</button>
+            }
+        </form>
+    </div>
+

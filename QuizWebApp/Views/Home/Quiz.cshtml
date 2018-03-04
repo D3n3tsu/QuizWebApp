@@ -1,0 +1,20 @@
+﻿@model QuizViewModel
+@{
+    ViewData["Title"] = "Quiz";
+}
+<div class="text-center">
+    <h2>
+        Quiz: @Model.Title
+    </h2>
+    @if (!Model.HasQuestions)
+    {
+        <div class="text-warning">
+            No questions yet.
+        </div>
+        <a asp-action="AddQuestion" asp-route-quizid="@Model.Id" class="btn btn-warning">Add question</a>
+    }
+    else
+    {
+        <a asp-action="Question" asp-route-quizid="@Model.Id" class="btn btn-success">Start quiz</a>
+    }
+</div>

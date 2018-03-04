@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Quiz>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                @item.Title
+            </div>
+            <div class="panel-body">
+                @item.Description
+            </div>
+            @if (item.Questions == null || item.Questions.Count() == 0)
+            {
+                <div class="text-warning">
+                    No questions yet
+                </div>
+            }
+            <div class="panel-footer">
+                <a asp-action="Quiz" asp-route-id="@(item.Id)" class="btn btn-primary">Take quiz</a>
+                <a asp-action="AddQuestion" asp-route-quizid="@(item.Id)" class="btn btn-warning">Add question</a>
+            </div>
+        </div>
+    }
+</div>
